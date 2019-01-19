@@ -17,6 +17,7 @@ schema:
     paths:
     - /
     - ./../common
+    - ./../data-structs/linkedlist
     extensions:
     - go
     - html

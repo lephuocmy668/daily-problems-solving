@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/lephuocmy668/daily-problem-solving/golang/workspace/common"
+	"github.com/lephuocmy668/daily-problems-solving/golang/workspace/common"
 )
 
 func handle(w http.ResponseWriter, r *http.Request) {
