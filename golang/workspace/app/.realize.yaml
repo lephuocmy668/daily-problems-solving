@@ -16,7 +16,7 @@ schema:
   watcher:
     paths:
     - /
-    - ./../common
+    - ./../core
     - ./../data-structs/linkedlist
     extensions:
     - go

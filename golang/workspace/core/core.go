@@ -1,4 +1,4 @@
-package common
+package core
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 )
 
 const AppName = "app"
-const AnotherAppName = "another-app"
+const AnotherAppName = "tiktok-clean-microservice"
 
 func StartServer(port string, handlerFunc http.HandlerFunc) {
 	http.HandleFunc("/", handlerFunc)

@@ -10,12 +10,12 @@ services:
     environment:
       GO_WORK_DIR: "${GO_PROJECT_DIR}/app"
 
-  another-app:
-    container_name: "another-app"
+  tiktok-clean-microservice:
+    container_name: "tiktok-clean-microservice"
     build: "./docker/go-develop"
     volumes:
       - ".:${GO_PROJECT_DIR}"
     ports:
       - "8181:8181"
     environment:
-      GO_WORK_DIR: "${GO_PROJECT_DIR}/another-app"
+      GO_WORK_DIR: "${GO_PROJECT_DIR}/tiktok-clean-microservice"

@@ -103,6 +103,21 @@ func (lk *LinkedList) DeleteByValue(value Item) {
 	}
 }
 
+// Iterate ...
+func (lk *LinkedList) Iterate(iteratee func(item Node) interface{}) {
+	lk.Lock.Lock()
+	defer lk.Lock.Unlock()
+
+	node := lk.Head
+	for {
+		if node == nil {
+			return
+		}
+		iteratee(*node)
+		node = node.Next
+	}
+}
+
 // FindByValue ...
 func (lk *LinkedList) FindByValue(value string) *Node {
 	lk.Lock.Lock()
@@ -198,9 +213,47 @@ func (lk *LinkedList) ToSlice() []Item {
 }
 
 // Reverse ...
-func (lk *LinkedList) Reverse() LinkedList {
+func (lk *LinkedList) Reverse() {
 	lk.Lock.Lock()
 	defer lk.Lock.Unlock()
 
+	var preNode *Node
+	var nextNode *Node
+	currentNode := lk.Head
+
+	for {
+		if currentNode != nil {
+			nextNode = currentNode.Next
+			currentNode.Next = preNode
+			preNode = currentNode
+			currentNode = nextNode
+			continue
+		}
+		break
+	}
+
+	lk.Head, lk.Tail = lk.Tail, lk.Head
+}
+
+// Map ...
+func (lk *LinkedList) Map(iteratee func(item Item) Item) LinkedList {
+	lk.Lock.Lock()
+	defer lk.Lock.Unlock()
+
+	newLK := LinkedList{}
+
+	node := lk.Head
+	for {
+		if node == nil {
+			return newLK
+		}
+		newNode := iteratee(node.Value)
+		newLK.Append(newNode)
+		node = node.Next
+	}
+}
+
+// Reduce ...
+func (lk *LinkedList) Reduce(iteratee func(item Item) Item) LinkedList {
 	return LinkedList{}
 }
