@@ -18,6 +18,12 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" \
 
 RUN go get github.com/tockins/realize
 RUN go get github.com/cheekybits/genny
+RUN go get github.com/go-chi/chi
+RUN go get github.com/go-chi/cors
+RUN go get github.com/go-kit/kit/endpoint
+RUN go get github.com/go-logfmt/logfmt
+RUN go get github.com/kelseyhightower/envconfig
+RUN go get github.com/satori/go.uuid
 
 WORKDIR $GOPATH
 ENTRYPOINT ["/entrypoint.sh"]

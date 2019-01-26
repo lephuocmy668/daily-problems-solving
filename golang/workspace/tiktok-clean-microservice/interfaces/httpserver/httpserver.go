@@ -8,12 +8,12 @@ import (
 	gokitlog "github.com/go-kit/kit/log"
 	"github.com/kelseyhightower/envconfig"
 
+	tiktokConfig "github.com/lephuocmy668/daily-problems-solving/golang/workspace/core/config"
 	"github.com/lephuocmy668/daily-problems-solving/golang/workspace/core/httpserver"
 	"github.com/lephuocmy668/daily-problems-solving/golang/workspace/tiktok-clean-microservice/businesslogics/usecases"
 	"github.com/lephuocmy668/daily-problems-solving/golang/workspace/tiktok-clean-microservice/endpoints"
 	"github.com/lephuocmy668/daily-problems-solving/golang/workspace/tiktok-clean-microservice/interfaces/httpserver/controllers"
 	"github.com/lephuocmy668/daily-problems-solving/golang/workspace/tiktok-clean-microservice/interfaces/searchengine"
-	tiktokConfig "github.com/lephuocmy668/tiktok/tiktok/golang/product/config"
 )
 
 const useCORS = false

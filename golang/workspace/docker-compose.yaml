@@ -16,6 +16,6 @@ services:
     volumes:
       - ".:${GO_PROJECT_DIR}"
     ports:
-      - "8181:8181"
+      - "8000:8000"
     environment:
       GO_WORK_DIR: "${GO_PROJECT_DIR}/tiktok-clean-microservice"
