@@ -25,10 +25,12 @@ type CreateUserResponse struct {
 func MakeCreateUserEndpoint(usc usecases.UseCases) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (interface{}, error) {
 		req := request.(CreateUserRequest)
+
 		user, err := usc.User.Create(&req.User)
 		if err != nil {
 			return nil, err
 		}
+
 		return CreateUserResponse{*user}, err
 	}
 }
@@ -84,7 +86,7 @@ type GetUserRequest struct {
 
 // GetUserResponse is struct which describe get user response
 type GetUserResponse struct {
-	user domains.User
+	User domains.User
 }
 
 // MakeGetUserEndpoint return execute get user endpoint
@@ -98,6 +100,8 @@ func MakeGetUserEndpoint(usc usecases.UseCases) endpoint.Endpoint {
 		if user == nil {
 			return nil, errors.New("User not found")
 		}
-		return GetUserResponse{*user}, err
+		return GetUserResponse{
+			User: *user,
+		}, err
 	}
 }

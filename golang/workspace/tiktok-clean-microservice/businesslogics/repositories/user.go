@@ -5,6 +5,7 @@ import (
 )
 
 type UserRequest struct {
+	ID string `json:"id"`
 }
 
 type UserRepository interface {

@@ -9,7 +9,7 @@ type UserIndex struct {
 }
 
 func (userIndex *UserIndex) Store(u *domains.User) (*domains.User, error) {
-	return nil, nil
+	return u, nil
 }
 
 func (userIndex *UserIndex) Find(req repositories.UserRequest) ([]domains.User, error) {
@@ -17,7 +17,12 @@ func (userIndex *UserIndex) Find(req repositories.UserRequest) ([]domains.User, 
 }
 
 func (userIndex *UserIndex) FindOne(req repositories.UserRequest) (*domains.User, error) {
-	return nil, nil
+	user := domains.User{
+		FirstName: "My",
+		LastName:  "Le Phuoc",
+	}
+
+	return &user, nil
 }
 
 func (userIndex *UserIndex) Update(u *domains.User) (*domains.User, error) {
