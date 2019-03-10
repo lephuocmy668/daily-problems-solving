@@ -1,5 +1,11 @@
 .PHONY: build dev predeploy deploy unit-test integration-test test
 
+run: 
+	go run ./main.go
+
+dev: 
+	./realize start
+
 integration-test:
 	go test ./... -tags=integration -count=1
 

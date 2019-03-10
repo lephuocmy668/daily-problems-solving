@@ -1,0 +1,16 @@
+
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+
+# Folders
+vendor
+_test
+
+# top level binary
+/server
+/bin
+
+# credentials
+**/.env
