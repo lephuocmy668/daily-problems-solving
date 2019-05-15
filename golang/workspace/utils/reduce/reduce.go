@@ -2,13 +2,13 @@ package reduce
 
 import "github.com/cheekybits/genny/generic"
 
-// GenericItem the type of item
+// Item the type of item
 type Item generic.Type
 
-// Iteratee is a function invoked per iteration.
+// GenericIteratee is a function invoked per iteration.
 type GenericIteratee func(accumulator interface{}, item Item, index int, arr []Item) interface{}
 
-// Reduce
+// GenericReduce
 func GenericReduce(collection []Item, iteratee GenericIteratee, initAccum interface{}) interface{} {
 	index := 0
 	length := len(collection)
